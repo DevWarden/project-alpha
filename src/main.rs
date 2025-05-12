@@ -50,7 +50,7 @@ async fn paraphrase(req: web::Json<ParaphraseRequest>) -> impl Responder {
     let response = match client
         .post("https://openrouter.ai/api/v1/chat/completions")
         .header("Authorization", format!("Bearer {}", api_key))
-        .header("HTTP-Referer", "https://vermillion-frangollo-c28e4d.netlify.app") // Set this to your actual domain in production
+        .header("HTTP-Referer", "http://localhost:3000") // Set this to your actual domain in production
         .header("X-Title", "AI Paraphraser")
         .json(&request_body)
         .send()
